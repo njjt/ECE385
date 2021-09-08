@@ -8,7 +8,7 @@ timeprecision 1ns;
 // instantiated as a submodule in testbench.
 logic Clk = 0;
 logic Reset, LoadA, LoadB, Execute;
-logic [3:0] Din;
+logic [7:0] Din;
 logic [2:0] F;
 logic [1:0] R;
 logic [3:0] LED;

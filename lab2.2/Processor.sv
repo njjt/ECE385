@@ -39,10 +39,10 @@ module Processor (input logic   Clk,     // Internal
 	 register_unit    reg_unit (
                         .Clk(Clk),
                         .Reset(Reset_SH),
-                        .Ld_A, //note these are inferred assignments, because of the existence a logic variable of the same name
-                        .Ld_B,
-                        .Shift_En,
-                        .D(Din_S),
+                        .Ld_A(LoadA), //note these are inferred assignments, because of the existence a logic variable of the same name
+                        .Ld_B(LoadB),
+                        .Shift_En(Shift_En),
+                        .D(Din),
                         .A_In(newA),
                         .B_In(newB),
                         .A_out(opA),
