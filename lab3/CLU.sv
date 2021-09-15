@@ -1,9 +1,8 @@
 module clu_4(input [3:0]A,
-	     [3:0]B,
-	     cin
-	     output 
-	     [3:0]S,
-	     cout
+	     input [3:0]B,
+	     input cin,
+	     output [3:0]S,
+	     output cout
 	     );
    logic  c0,c1,c2,p0,p1,p2,p3,g0,g1,g2,g3;
    
