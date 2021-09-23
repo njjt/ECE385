@@ -27,28 +27,32 @@ module control (input  logic Clk,Reset, Run, Cl_A_Load_B,M,
 		  next_state = curr_state;	//required because I haven't enumerated all possibilities below
         unique case (curr_state) 
 
-            Initial_state :    if (Cl_A_Load_B)
+            Initial_state :   if (Cl_A_Load_B)
 										next_state = Start_state;
-									 
+									   else 
+										next_state = curr_state;
 
 							  
             Start_state :    if(M && Run)
 									  next_state = ADD_state;
 							        else if (M == 0 && Run)
 									  next_state = Shift_state;
+									  else 
+									  next_state = curr_state;
                             
 									  
 									 
 
-				Shift_state :    if(M == 1 && Counter != 4'b0001 )
+				Shift_state :    if(M == 1 && Counter > 4'b0001 )
 				                 next_state = ADD_state;
-							        else if (M == 0 && Counter != 4'b0001)    
+							        else if (M == 0 && Counter > 4'b0001)    
 									  next_state = Shift_state;
 									  else if (M == 1 && Counter == 4'b0001)
 									  next_state = Sub_state;
 									  else if (Counter == 4'b0000)
 									  next_state =  Final_shift_state;
-									 
+									  else 
+									  next_state = curr_state;
 					
 				ADD_state: 
 	                     next_state = Shift_state;			
