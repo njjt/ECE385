@@ -11,7 +11,7 @@ module mux3_1(input logic [15:0] PC,
    2'b00: S = PC + 1;
 	2'b01: S = add;
 	2'b10: S = bus;
-	default : S = PC;
+	default : S = PC +1;
    endcase
 	end
 endmodule

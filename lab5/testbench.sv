@@ -24,14 +24,26 @@ end
 
 // as in a software program
 initial begin: TEST_VECTORS
- Run = 0;
+ Run = 1;
  SW = 8'b00000000;
- Continue = 0;
+ Continue = 1;
  
- #2 Continue = 1;
- #2 Run = 1;
  #2 Run = 0;
+  #2 Continue = 0;
+  #2 Run = 1;
+   #2 Continue = 1;
+  
+  #2 Run = 0;
+  #2 Run = 1;
+  
  
+ #4 Continue = 1;
+  #15 Continue = 0;
+  #4 Continue = 1;
+ 
+
+
+
  end
  endmodule
  

@@ -6,13 +6,9 @@ module mux2_1(input logic[15:0] bus,
 	   );
 	always_comb	
 	begin
-   if(MIO_EN)
-	begin
-     S = MMAR;
-	end
-    else
-	 begin
-	 S = bus;
-	 end
+   case(MIO_EN)
+	1'b0	:	S = bus;
+	1'b1	:	S = MMAR;
+	endcase
    end
 endmodule

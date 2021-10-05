@@ -59,12 +59,19 @@ assign MIO_EN = OE;
 // Connect everything to the data path (you have to figure out this part)
 datapath d0 (.*);
 
+always_comb
+begin
+hex_4[0][3:0] = IR[3:0];
+hex_4[1][3:0]= IR[7:4];
+hex_4[2][3:0] = IR[11:8];
+hex_4[3][3:0] = IR[15:12];
+end
 
 // Our SRAM and I/O controller (note, this plugs into MDR/MAR)
-
+//.HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]),
 Mem2IO memory_subsystem(
-    .*, .Reset(Reset), .ADDR(ADDR), .Switches(SW),
-    .HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]),
+    .Clk(Clk), .Reset(Reset), .ADDR(ADDR), .Switches(SW),
+	 .OE(OE),.WE(WE),
     .Data_from_CPU(MDR), .Data_to_CPU(MDR_In),
     .Data_from_SRAM(Data_from_SRAM), .Data_to_SRAM(Data_to_SRAM)
 );
