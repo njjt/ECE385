@@ -136,16 +136,6 @@ set_location_assignment PIN_M20 -to HEX5[4]
 set_location_assignment PIN_N19 -to HEX5[5]
 set_location_assignment PIN_N20 -to HEX5[6]
 set_location_assignment PIN_L19 -to HEX5[7]
-set_location_assignment PIN_A8 -to LEDR[0]
-set_location_assignment PIN_A9 -to LEDR[1]
-set_location_assignment PIN_A10 -to LEDR[2]
-set_location_assignment PIN_B10 -to LEDR[3]
-set_location_assignment PIN_D13 -to LEDR[4]
-set_location_assignment PIN_C13 -to LEDR[5]
-set_location_assignment PIN_E14 -to LEDR[6]
-set_location_assignment PIN_D14 -to LEDR[7]
-set_location_assignment PIN_A11 -to LEDR[8]
-set_location_assignment PIN_B11 -to LEDR[9]
 set_location_assignment PIN_C10 -to SW[0]
 set_location_assignment PIN_C11 -to SW[1]
 set_location_assignment PIN_D12 -to SW[2]
@@ -253,6 +243,46 @@ set_global_assignment -name EDA_TEST_BENCH_FILE testbench.sv -section_id testben
 set_location_assignment PIN_P11 -to Clk
 set_location_assignment PIN_B8 -to Continue
 set_location_assignment PIN_A7 -to Run
+set_location_assignment PIN_A8 -to LED[0]
+set_location_assignment PIN_A9 -to LED[1]
+set_location_assignment PIN_A10 -to LED[2]
+set_location_assignment PIN_B10 -to LED[3]
+set_location_assignment PIN_D13 -to LED[4]
+set_location_assignment PIN_C13 -to LED[5]
+set_location_assignment PIN_E14 -to LED[6]
+set_location_assignment PIN_D14 -to LED[7]
+set_location_assignment PIN_A11 -to LED[8]
+set_location_assignment PIN_B11 -to LED[9]
+set_global_assignment -name SYSTEMVERILOG_FILE "3-1mux.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE addder_16.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Full_adder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE "2-1mux.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE Mem2IO.sv
+set_global_assignment -name SYSTEMVERILOG_FILE bus_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE slc3_testtop.sv
+set_global_assignment -name SYSTEMVERILOG_FILE memory_contents.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbench.sv
+set_global_assignment -name SYSTEMVERILOG_FILE synchronizers.sv
+set_global_assignment -name SYSTEMVERILOG_FILE slc3.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Instantiateram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE reg16.sv
+set_global_assignment -name SYSTEMVERILOG_FILE datapath.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SLC3_2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE slc3_sramtop.sv
+set_global_assignment -name SYSTEMVERILOG_FILE test_memory.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ISDU.sv
+set_global_assignment -name VERILOG_FILE DE10_LITE_Golden_Top.v
+set_global_assignment -name SYSTEMVERILOG_FILE HexDriver.sv
+set_global_assignment -name QIP_FILE ram.qip
+set_global_assignment -name SYSTEMVERILOG_FILE "4-1mux.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "2-1muxSign.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE reg_file.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ALU.sv
+set_global_assignment -name SYSTEMVERILOG_FILE nzp_control.sv
+set_global_assignment -name SYSTEMVERILOG_FILE reg_3.sv
+set_global_assignment -name SYSTEMVERILOG_FILE reg_1.sv
+set_global_assignment -name SDC_FILE lab5.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE mux214.sv
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -444,32 +474,15 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[35]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to Continue
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to Clk
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to Run
-set_global_assignment -name SYSTEMVERILOG_FILE "3-1mux.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE addder_16.sv
-set_global_assignment -name SYSTEMVERILOG_FILE Full_adder.sv
-set_global_assignment -name SYSTEMVERILOG_FILE "2-1mux.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE Mem2IO.sv
-set_global_assignment -name SYSTEMVERILOG_FILE bus_mux.sv
-set_global_assignment -name SYSTEMVERILOG_FILE slc3_testtop.sv
-set_global_assignment -name SYSTEMVERILOG_FILE memory_contents.sv
-set_global_assignment -name SYSTEMVERILOG_FILE testbench.sv
-set_global_assignment -name SYSTEMVERILOG_FILE synchronizers.sv
-set_global_assignment -name SYSTEMVERILOG_FILE slc3.sv
-set_global_assignment -name SYSTEMVERILOG_FILE Instantiateram.sv
-set_global_assignment -name SYSTEMVERILOG_FILE reg16.sv
-set_global_assignment -name SYSTEMVERILOG_FILE datapath.sv
-set_global_assignment -name SYSTEMVERILOG_FILE SLC3_2.sv
-set_global_assignment -name SYSTEMVERILOG_FILE slc3_sramtop.sv
-set_global_assignment -name SYSTEMVERILOG_FILE test_memory.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ISDU.sv
-set_global_assignment -name VERILOG_FILE DE10_LITE_Golden_Top.v
-set_global_assignment -name SYSTEMVERILOG_FILE HexDriver.sv
-set_global_assignment -name QIP_FILE ram.qip
-set_global_assignment -name SYSTEMVERILOG_FILE "4-1mux.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "2-1muxSign.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE reg_file.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ALU.sv
-set_global_assignment -name SYSTEMVERILOG_FILE nzp_control.sv
-set_global_assignment -name SYSTEMVERILOG_FILE reg_3.sv
-set_global_assignment -name SYSTEMVERILOG_FILE reg_1.sv
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

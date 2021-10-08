@@ -14,7 +14,7 @@ module bus_mux(input logic [15:0] PC, MDR,MAR, ALU,
 			4'b0010	:	Q = MDR;
 			4'b0100	:	Q = MAR;
 			4'b1000 :	Q = ALU;
-			default : Q = 16'b000000000000;
+			default : Q = PC;
 			
 		endcase
 		end

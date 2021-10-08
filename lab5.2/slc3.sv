@@ -67,7 +67,7 @@ datapath d0 (.*);
 //end
 
 // Our SRAM and I/O controller (note, this plugs into MDR/MAR)
-
+//
 Mem2IO memory_subsystem(
     .Clk(Clk), .Reset(Reset), .ADDR(ADDR), .Switches(SW),
 	 .HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]),

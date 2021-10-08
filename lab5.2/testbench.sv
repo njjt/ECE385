@@ -28,21 +28,14 @@ initial begin: TEST_VECTORS
  SW = 8'b00000000;
  Continue = 1;
  
- #2 Run = 0;
-  #2 Continue = 0;
-  #2 Run = 1;
-   #2 Continue = 1;
+#2 Continue = 0;
+#2 Run = 0;
+#2 Run = 1;
+#2 Continue = 1;
+#2 Run = 0;
+#2 Run = 1;
   
-  #2 Run = 0;
-  #2 Run = 1;
-  
- 
- #4 Continue = 1;
-  #15 Continue = 0;
-  #4 Continue = 1;
- 
-
-
+#2 SW = 8'b00000111;
 
  end
  endmodule

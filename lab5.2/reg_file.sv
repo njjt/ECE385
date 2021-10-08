@@ -6,9 +6,7 @@ module reg_file(input logic Clk,
 					 output logic [15:0] SR1_OUT,SR2_OUT
 					 );
 logic load0,load1,load2,load3,load4,load5,load6,load7;
-logic R0_Out,R1_Out,R2_Out,R3_Out,R4_Out,R5_Out,R6_Out,R7_Out;
-
-logic [9:0] reg_select;
+logic [15:0]R0_Out,R1_Out,R2_Out,R3_Out,R4_Out,R5_Out,R6_Out,R7_Out;
 always_comb
 begin
 load0 = 0;
@@ -19,17 +17,19 @@ load4 = 0;
 load5 = 0;
 load6 = 0;
 load7 = 0;
+if(load)
+begin
 case(DR)
-3'b000 : load0  = 1;
-3'b001 : load1  = 1;
-3'b010 : load2  = 1;
-3'b011 : load3  = 1;
-3'b100 : load4  = 1;
-3'b101 : load5  = 1;
-3'b110 : load6  = 1;
-3'b111 : load7  = 1;
-//default : load0 = 1;
+3'b000 : load0  = 1'b1;
+3'b001 : load1  = 1'b1;
+3'b010 : load2  = 1'b1;
+3'b011 : load3  = 1'b1;
+3'b100 : load4  = 1'b1;
+3'b101 : load5  = 1'b1;
+3'b110 : load6  = 1'b1;
+3'b111 : load7  = 1'b1;
 endcase
+end
 case(SR1)
 3'b000 :	SR1_OUT = R0_Out;
 3'b001 :	SR1_OUT = R1_Out;

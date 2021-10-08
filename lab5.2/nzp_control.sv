@@ -1,18 +1,19 @@
 module nzp_control(input logic [15:0] bus,
 						 input logic [2:0] nzp,
+						 output logic [2:0] nzp_in,
 						 output logic ben_out
 						 );
-logic [2:0] name;
+
 always_comb
 begin
-name = 3'b000;
 case(bus)
-16'h0000	:	name = 3'b010; //zero
-16'b1xxxxxxxxxxxxxxx	: name = 3'b100; //negative
-16'b0xxxxxxxxxxxxxxx	: name = 3'b001; //postive
+16'h0000	:	nzp_in = 3'b010; //zero
+16'b1xxxxxxxxxxxxxxx	: nzp_in = 3'b100; //negative
+default : nzp_in = 3'b001;
 endcase
 
-if(nzp & name)
+
+if(nzp & nzp_in)
 	ben_out = 1'b1;
 
 else
